@@ -1,0 +1,19 @@
+header[role="banner"] {
+  #logo-main {
+    display: block;
+    margin: 20px auto;
+  }
+}
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 1250px;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 30px;
+}
+body {
+    background-color:rgb(248, 213, 167);
+
+    color: #000000;
+}
