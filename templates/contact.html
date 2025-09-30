@@ -4,8 +4,35 @@
 
 {% block content %}
 
-<div class="container"> 
-    <h4>Contact page</h4>
-</div>
+<section class="contact-section">
+    <div class="container mt-3 w-50">
+        <div class="section-title text-center">
+            <h2>Get in Touch</h2>
+            <p>We’d love to hear from you. Drop us a message!</p>
+        </div>
+        <form class="contact-form">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" placeholder="First Name *" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" placeholder="Last Name *" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="email" class="form-control" placeholder="Email *" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="text" class="form-control" placeholder="Subject">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <textarea class="form-control" rows="5" placeholder="Message *"></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 
 {% endblock %}

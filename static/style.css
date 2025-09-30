@@ -12,3 +12,15 @@ body {
     padding: 10px;
     font-size: 30px;
 }
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.card {
+    border-radius: 10px;
+}
