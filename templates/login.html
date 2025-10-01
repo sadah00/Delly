@@ -3,9 +3,51 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-5">
+                    <h3 class="text-center mb-4 fw-bold">Login</h3>
 
-<div class="container"> 
-    <h4>Login page</h4>
+                    <form method="POST" action="/login">
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-control form-control-lg rounded-3" id="email"
+                                placeholder="Enter your email">
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control form-control-lg rounded-3"
+                                id="password" placeholder="Enter your password">
+                        </div>
+
+                        <!-- Remember me + Forgot -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="text-decoration-none">Forgot password?</a>
+                        </div>
+
+                        <!-- Login button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg rounded-3">Login</button>
+                        </div>
+                    </form>
+
+                    <!-- Sign up -->
+                    <p class="text-center mt-4 mb-0">Don't have an account?
+                        <a href="/register" class="text-decoration-none fw-semibold">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
