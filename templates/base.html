@@ -8,14 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body>
     <div style="margin-bottom: 100px;">
-        
+
         <nav class="navbar bg-body-tertiary fixed-top pt-0 pb-0">
             <div class="container-fluid">
                 <a class="navbar-brand m-0 border-4 border-black" href="/"><img id="logo-main"
@@ -62,7 +62,7 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li><a class="dropdown-item" href="/login">Login</a></li>
-                                    
+
                                 </ul>
                             </li>
                         </ul>
@@ -72,51 +72,66 @@
         </nav>
 
 
-
-
-        {% block content %}
-
-        {% endblock %}
-    </div>
-
-    <div class="container-fluid text-white mt-5 pt-5 pb-3 position-absolute" style="background-color: #000000;">
-        <div class="row">
-            <div class="col-md-4 ">
-                <h5>kelis_galoree</h5>
-                <p>Elevate your beauty with quality thrifted fits </p>
+        <div class="flash-container" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; width: 100%;
+            max-width: 600px;">
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if
+            messages %} {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
-            <div class="col-md-4 text-center">
-                <h5> Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="/" class="text-decoration-none">Home</a></li>
-                    <li><a href="/shop" class="text-decoration-none">Shop</a></li>
-                    <li><a href="/contact" class="text-decoration-none">Contact</a></li>
-                </ul>
-                © 2025 kelis_galoree. All rights reserved.
-            </div>
-            <div class="col-md-4">
-                <h5 class="mb-3">Contact Us</h5>
-                <a href="https://www.instagram.com/kelis_galoree/" target="_blank"><i
-                        class="fa-brands fa-instagram fa-2xl m-2" style="color: #ffffff; "></i></a>
-                <a href="https://www.tiktok.com/@kelis_galoree/" target="_blank"><i
-                        class="fa-brands fa-tiktok fa-2xl m-2" style="color: #ffffff;"></i></a>
-                <a href="https://wa.me/254702851200" target="_blank"><i class="fa-brands fa-whatsapp fa-2xl m-2"
-                        style="color:#ffffff;"></i></a>
-
-
-            </div>
-            <div class="whatsapp">
-                <a href="https://wa.me/254702851200" target="_blank"><i
-                        class="fa-brands fa-square-whatsapp fa-2xl" style="color: #2b9158;"></i></a>
-            </div>
-
+            {% endfor %} {% endif %} {% endwith %}
         </div>
-    </div>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
+        
+        <div>
+
+
+
+
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <div class="container-fluid text-white mt-5 pt-5 pb-3 position-absolute" style="background-color: #000000;">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h5>kelis_galoree</h5>
+                    <p>Elevate your beauty with quality thrifted fits </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5> Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-decoration-none">Home</a></li>
+                        <li><a href="/shop" class="text-decoration-none">Shop</a></li>
+                        <li><a href="/contact" class="text-decoration-none">Contact</a></li>
+                    </ul>
+                    © 2025 kelis_galoree. All rights reserved.
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <a href="https://www.instagram.com/kelis_galoree/" target="_blank"><i
+                            class="fa-brands fa-instagram fa-2xl m-2" style="color: #ffffff; "></i></a>
+                    <a href="https://www.tiktok.com/@kelis_galoree/" target="_blank"><i
+                            class="fa-brands fa-tiktok fa-2xl m-2" style="color: #ffffff;"></i></a>
+                    <a href="https://wa.me/254702851200" target="_blank"><i class="fa-brands fa-whatsapp fa-2xl m-2"
+                            style="color:#ffffff;"></i></a>
+
+
+                </div>
+                <div class="whatsapp">
+                    <a href="https://wa.me/254702851200" target="_blank"><i class="fa-brands fa-square-whatsapp fa-2xl"
+                            style="color: #2b9158;"></i></a>
+                </div>
+
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+            </script>
 </body>
 
 </html>

@@ -12,9 +12,12 @@ app.secret_key = 'delicate'
 def home():  
     return render_template("index.html")
 
-@app.route('/contact') 
+@app.route('/contact',methods=['GET', 'POST']) 
 def contact():  
-    return render_template("contact.html")
+    if request.method == 'POST':
+        # Process form data here
+        return render_template('contact.html', success=True)
+    return render_template('contact.html', success=False)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():  
@@ -51,8 +54,10 @@ def register():
             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
             new_user = (name,email,phone_number,hashed_password)
             insert_user(new_user)
+            print("User Registered Successfully........")
             flash("User registered successfully","success")
-            return redirect(url_for('register'))
+            # print("message flashed Successfully........")
+            return redirect(url_for('shop'))
         
         else:
             flash("User already exists,please login","danger") 
